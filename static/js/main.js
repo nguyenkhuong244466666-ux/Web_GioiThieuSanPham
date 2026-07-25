@@ -9,15 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 2. Xử lý Fallback Logo (khi ảnh logo chính bị lỗi/không tồn tại)
-    const logoImg = document.querySelector('.logo-img');
-    if (logoImg) {
-        logoImg.addEventListener('error', function () {
-            this.src = '/static/images/default/logo-placeholder.png';
-        });
-    }
-
-    // 3. Tự động ẩn thông báo Flash sau 4 giây
+    // 2. Tự động ẩn thông báo Flash sau 4 giây
     const flashMessages = document.querySelectorAll('.flash-item');
     if (flashMessages.length > 0) {
         setTimeout(function () {
