@@ -692,3 +692,39 @@ section h2::after,
     }
 
 }
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+
+    .main-content {
+        margin-top: 80px;
+    }
+
+
+    .contact-wrapper {
+        display: block;
+    }
+
+
+    .contact-info,
+    .contact-form {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+
+    .page-content {
+        padding-bottom: 50px;
+    }
+
+
+    textarea {
+        min-height: 150px;
+    }
+
+}
