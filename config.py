@@ -1,22 +1,38 @@
 import os
 
+# Thư mục gốc của project
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+
 class Config:
-    """Cấu hình ứng dụng Flask và SQLAlchemy."""
+    """Cấu hình ứng dụng Flask"""
 
-    # Khóa bí mật cho Session
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'cua_nhom_nguyen_nghiem_secret_2026')
-
-    # Chuỗi kết nối Database với SQLAlchemy
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DATABASE_URL', 
-        'mysql+pymysql://root:1234@localhost:3306/cua_nhom_nguyen_nghiem'
+    # Khóa bí mật
+    SECRET_KEY = os.environ.get(
+        "SECRET_KEY",
+        "cua_nhom_nguyen_nghiem_secret_2026"
     )
 
-    # Thư mục lưu trữ Uploads
-    UPLOAD_FOLDER = os.path.join('static', 'uploads')
-    
-    # Định dạng ảnh cho phép upload
-    ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'webp'}
-    
-    # Giới hạn dung lượng file upload (tối đa 16MB)
+    # Database
+    # Trên Render nếu có DATABASE_URL thì dùng.
+    # Nếu không có thì dùng SQLite.
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL",
+        "sqlite:///" + os.path.join(BASE_DIR, "database.db")
+    )
+
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Thư mục upload
+    UPLOAD_FOLDER = os.path.join(BASE_DIR, "static", "uploads")
+
+    # Định dạng ảnh cho phép
+    ALLOWED_EXTENSIONS = {
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+    }
+
+    # Giới hạn upload (16MB)
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024
