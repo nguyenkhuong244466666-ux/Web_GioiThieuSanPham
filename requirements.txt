@@ -5,3 +5,4 @@ Werkzeug
 Pillow
 pymysql
 gunicorn
+psycopg2-binary
