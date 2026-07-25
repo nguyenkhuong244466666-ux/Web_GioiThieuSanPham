@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Cửa sổ - Cửa Nhôm Nguyễn Nghiệm{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>CỬA SỔ</h1>
+        <p>Chọn loại cửa sổ bạn muốn xem</p>
+    </div>
+</div>
+
+<section class="sub-category-section section-padding">
+    <div class="container">
+        <div class="sub-category-grid">
+            <a href="{{ url_for('cua_so_keo') }}" class="sub-category-card">
+                <h2>CỬA SỔ KÉO</h2>
+                <p>Xem hình ảnh mẫu cửa sổ mở hất / mở quay kéo</p>
+            </a>
+            <a href="{{ url_for('cua_so_lua') }}" class="sub-category-card">
+                <h2>CỬA SỔ LÙA</h2>
+                <p>Xem hình ảnh mẫu cửa sổ trượt lùa tiết kiệm diện tích</p>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Tủ nhôm - Cửa Nhôm Nguyễn Nghiệm{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>TỦ NHÔM NỘI THẤT</h1>
+        <p>Chọn loại tủ bạn muốn xem mẫu</p>
+    </div>
+</div>
+
+<section class="sub-category-section section-padding">
+    <div class="container">
+        <div class="sub-category-grid grid-4">
+            <a href="{{ url_for('tu_bep') }}" class="sub-category-card">
+                <h2>TỦ BẾP</h2>
+                <p>Mẫu tủ bếp nhôm kính cao cấp</p>
+            </a>
+            <a href="{{ url_for('tu_quan_ao') }}" class="sub-category-card">
+                <h2>TỦ QUẦN ÁO</h2>
+                <p>Mẫu tủ quần áo nhôm cánh kính</p>
+            </a>
+            <a href="{{ url_for('tu_chen') }}" class="sub-category-card">
+                <h2>TỦ CHÉN</h2>
+                <p>Mẫu tủ chén bát treo tường, đứng</p>
+            </a>
+            <a href="{{ url_for('tu_trang_tri') }}" class="sub-category-card">
+                <h2>TỦ TRANG TRÍ</h2>
+                <p>Mẫu tủ rượu, tủ trưng bày phòng khách</p>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

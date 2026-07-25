@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sản Phẩm Mới - Cửa Nhôm Nguyễn Nghiệm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <main class="container page-content" style="max-width: 600px;">
+        <div class="contact-form" style="border-top: 4px solid #0d3b66;">
+            <h2>THÊM HÌNH ẢNH SẢN PHẨM MỚI</h2>
+            <form action="{{ url_for('add_product') }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Tên sản phẩm / Tiêu đề *</label>
+                    <input type="text" id="title" name="title" placeholder="Nhập tên sản phẩm..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category_id">Danh mục sản phẩm *</label>
+                    <select id="category_id" name="category_id" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px;" required>
+                        <option value="">-- Chọn danh mục --</option>
+                        {% for cat in categories %}
+                            <option value="{{ cat.id }}">{{ cat.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Chọn file hình ảnh *</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Mô tả sản phẩm</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Nhập mô tả ngắn về quy cách, chất liệu..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Tải ảnh lên</button>
+                <a href="{{ url_for('admin_products') }}" style="display: block; text-align: center; margin-top: 15px; color: #666; text-decoration: none;">Quay lại danh sách</a>
+            </form>
+        </div>
+    </main>
+
+    {% include 'footer.html' %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

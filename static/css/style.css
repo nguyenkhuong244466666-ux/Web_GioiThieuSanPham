@@ -1,0 +1,636 @@
+/* RESET & GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #F8FAFC;
+    color: #1E293B;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #0F172A;
+    margin-bottom: 40px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #1E3A8A;
+    margin: 10px auto 0;
+}
+
+/* FLASH MESSAGES */
+.flash-messages {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.flash-item {
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #FFF;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.flash-success { background-color: #10B981; }
+.flash-danger { background-color: #EF4444; }
+.flash-warning { background-color: #F59E0B; }
+.flash-info { background-color: #3B82F6; }
+
+/* HEADER & NAVIGATION */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0F172A;
+    letter-spacing: 0.5px;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+}
+
+.main-nav > ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.main-nav a {
+    font-weight: 600;
+    color: #334155;
+    padding: 10px 0;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+}
+
+.main-nav a:hover {
+    color: #1E3A8A;
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+    position: relative;
+}
+
+.arrow-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    vertical-align: middle;
+    border-top: 4px solid #334155;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 220px;
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    position: relative;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    text-transform: none;
+    font-size: 0.9rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: #F8FAFC;
+    color: #1E3A8A;
+}
+
+/* SUBMENU */
+.dropdown-sub .submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 200px;
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.dropdown-sub:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #0F172A;
+    border-radius: 2px;
+}
+
+/* PAGE HEADER */
+.main-content {
+    margin-top: 80px;
+    flex: 1;
+}
+
+.page-header {
+    background-color: #0F172A;
+    color: #FFFFFF;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #94A3B8;
+}
+
+/* FOOTER */
+.main-footer {
+    background-color: #0F172A;
+    color: #E2E8F0;
+    padding-top: 50px;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 40px;
+}
+
+.footer-col h3, .footer-col h4 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a:hover {
+    color: #60A5FA;
+}
+
+.footer-bottom {
+    border-top: 1px solid #1E293B;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.9);
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 85%;
+    text-align: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.lightbox-caption {
+    color: #FFFFFF;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.lightbox-close, .lightbox-prev, .lightbox-next {
+    position: absolute;
+    color: #FFFFFF;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+}
+
+.lightbox-close { top: 20px; right: 30px; }
+.lightbox-prev { left: 30px; }
+.lightbox-next { right: 30px; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .mobile-toggle { display: flex; }
+    .main-nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #FFFFFF;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .main-nav.active { display: block; }
+    .main-nav > ul { flex-direction: column; gap: 0; }
+    .main-nav li { width: 100%; }
+    .main-nav a { padding: 15px 20px; display: block; }
+    .dropdown-menu, .dropdown-sub .submenu { position: static; width: 100%; opacity: 1; visibility: visible; transform: none; box-shadow: none; background-color: #F8FAFC; }
+    .footer-container { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================
+   TRANG LIÊN HỆ (CONTACT PAGE STYLES)
+   ========================================== */
+
+.page-content {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title h1 {
+    color: #0d3b66;
+    font-size: 32px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.page-title p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Chia 2 cột cho Khối thông tin & Form */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* Card Thông tin liên hệ */
+.contact-info {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #0d3b66;
+}
+
+.contact-info h2 {
+    color: #0d3b66;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.contact-info hr {
+    border: none;
+    height: 1px;
+    background: #eee;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin-bottom: 20px;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.info-item p, .info-item a {
+    color: #555;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+    color: #007bff;
+    font-weight: 500;
+}
+
+/* Card Form tư vấn */
+.contact-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #f4a261;
+}
+
+.contact-form h2 {
+    color: #0d3b66;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #0d3b66;
+    box-shadow: 0 0 8px rgba(13, 59, 102, 0.2);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #0d3b66;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #f4a261;
+}
+
+/* Khối Bản đồ */
+.map-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.map-container h2 {
+    color: #0d3b66;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   NÂNG CẤP MÀU SẮC & HIỆU ỨNG TRANG CHỦ
+   ========================================== */
+
+/* 1. Tiêu đề phần (Section Headers) */
+.page-title h1, 
+section h2, 
+.about-section h2, 
+.category-section h2 {
+    color: #0d3b66;
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+/* Đường gạch chân tiêu đề dải màu rực rỡ */
+.page-title h1::after,
+section h2::after,
+.about-section h2::after,
+.category-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #f4a261, #e76f51, #2a9d8f);
+    border-radius: 4px;
+}
+
+/* 2. Khối "Về Chúng Tôi" */
+.about-card, .feature-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(13, 59, 102, 0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid #2a9d8f;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Thêm vệt màu trang trí góc trên card */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, transparent 50%, #f4a261 50%);
+    opacity: 0.2;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(13, 59, 102, 0.15);
+    border-left-color: #e76f51;
+}
+
+.feature-card h3 {
+    color: #0d3b66;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* 3. Danh Mục Thi Công (Thẻ bài nhiều màu sắc) */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.category-card {
+    background: linear-gradient(145deg, #ffffff, #f0f4f8);
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 25px 15px;
+    text-align: center;
+    font-weight: 700;
+    color: #0d3b66;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hiệu ứng rê chuột vào từng Thẻ Danh Mục */
+.category-card:hover {
+    background: linear-gradient(135deg, #0d3b66, #1d3557);
+    color: #ffffff;
+    border-color: #f4a261;
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 25px rgba(13, 59, 102, 0.25);
+}
+
+/* Thêm màu viền tương tác nổi bật */
+.category-card:nth-child(1) { border-bottom: 4px solid #e76f51; }
+.category-card:nth-child(2) { border-bottom: 4px solid #f4a261; }
+.category-card:nth-child(3) { border-bottom: 4px solid #2a9d8f; }
+.category-card:nth-child(4) { border-bottom: 4px solid #457b9d; }
+.category-card:nth-child(5) { border-bottom: 4px solid #e63946; }
+
+.category-card:hover:nth-child(n) {
+    border-bottom-color: #f4a261;
+}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Trang chủ - Cửa Nhôm Nguyễn Nghiệm{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>CỬA NHÔM NGUYỄN NGHIỆM</h1>
+        <p>Giải pháp cửa nhôm kính & tủ nội thất hiện đại - Sang trọng - Bền bỉ theo thời gian</p>
+        <a href="{{ url_for('products') }}" class="btn-primary">Khám phá sản phẩm</a>
+    </div>
+</section>
+
+<section class="intro-section">
+    <div class="container">
+        <h2 class="section-title">VỀ CHÚNG TÔI</h2>
+        <div class="intro-grid">
+            <div class="intro-text">
+                <p><strong>Cửa Nhôm Nguyễn Nghiệm</strong> là đơn vị tiên phong trong lĩnh vực gia công, sản xuất và thi công lắp đặt các sản phẩm cửa nhôm kính cao cấp, vách ngăn kính và tủ nhôm trang trí tại khu vực.</p>
+                <p>Với phương châm <em>"Uy tín tạo niềm tin - Chất lượng dựng tầm vóc"</em>, chúng tôi cam kết đem lại không gian sống sang trọng, tinh tế và tối ưu cho ngôi nhà của bạn.</p>
+            </div>
+            <div class="intro-features">
+                <div class="feature-item">
+                    <h4>Chất lượng vượt trội</h4>
+                    <p>Sử dụng thanh nhôm định hình chất lượng cao, sơn tĩnh điện bền màu.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Thi công chuyên nghiệp</h4>
+                    <p>Đội ngũ thợ giàu kinh nghiệm, đáp ứng đúng tiến độ và tiêu chuẩn kỹ thuật.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="categories-preview">
+    <div class="container">
+        <h2 class="section-title">DANH MỤC THI CÔNG</h2>
+        <div class="cat-grid">
+            <a href="{{ url_for('cua_cai') }}" class="cat-card">
+                <h3>Cửa cái</h3>
+            </a>
+            <a href="{{ url_for('cua_phong') }}" class="cat-card">
+                <h3>Cửa phòng</h3>
+            </a>
+            <a href="{{ url_for('cua_toilet') }}" class="cat-card">
+                <h3>Cửa toilet</h3>
+            </a>
+            <a href="{{ url_for('cua_so') }}" class="cat-card">
+                <h3>Cửa sổ</h3>
+            </a>
+            <a href="{{ url_for('tu') }}" class="cat-card">
+                <h3>Tủ nhôm</h3>
+            </a>
+            <a href="{{ url_for('vach_ngan') }}" class="cat-card">
+                <h3>Vách ngăn</h3>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Đăng nhập Quản trị - Cửa Nhôm Nguyễn Nghiệm{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2>QUẢN TRỊ HỆ THỐNG</h2>
+    <form action="{{ url_for('admin_login') }}" method="POST">
+        <div class="form-group">
+            <label for="username">Tên đăng nhập</label>
+            <input type="text" id="username" name="username" required placeholder="Nhập username">
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu">
+        </div>
+        <button type="submit" class="btn-submit">ĐĂNG NHẬP</button>
+    </form>
+</div>
+{% endblock %}

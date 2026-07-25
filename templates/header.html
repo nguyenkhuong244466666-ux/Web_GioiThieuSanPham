@@ -1,0 +1,47 @@
+<header class="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/logo/logo_nguyennghiem.png') }}" alt="Cửa Nhôm Nguyễn Nghiệm" class="logo-img">
+                <span>NGUYỄN NGHIỆM</span>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Trang chủ</a></li>
+                <li><a href="{{ url_for('about') }}">Giới thiệu</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('products') }}">Sản phẩm <i class="arrow-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('cua_cai') }}">Cửa cái</a></li>
+                        <li><a href="{{ url_for('cua_phong') }}">Cửa phòng</a></li>
+                        <li><a href="{{ url_for('cua_toilet') }}">Cửa toilet</a></li>
+                        <li class="dropdown-sub">
+                            <a href="{{ url_for('cua_so') }}">Cửa sổ</a>
+                            <ul class="submenu">
+                                <li><a href="{{ url_for('cua_so_keo') }}">Cửa sổ kéo</a></li>
+                                <li><a href="{{ url_for('cua_so_lua') }}">Cửa sổ lùa</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-sub">
+                            <a href="{{ url_for('tu') }}">Tủ</a>
+                            <ul class="submenu">
+                                <li><a href="{{ url_for('tu_bep') }}">Tủ bếp</a></li>
+                                <li><a href="{{ url_for('tu_quan_ao') }}">Tủ quần áo</a></li>
+                                <li><a href="{{ url_for('tu_chen') }}">Tủ chén</a></li>
+                                <li><a href="{{ url_for('tu_trang_tri') }}">Tủ trang trí</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('vach_ngan') }}">Vách ngăn</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('contact') }}">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>

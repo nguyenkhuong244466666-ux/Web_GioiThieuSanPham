@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard Quản trị - Cửa Nhôm Nguyễn Nghiệm{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-wrapper">
+    <aside class="admin-sidebar">
+        <h3>QUẢN TRỊ</h3>
+        <ul>
+            <li><a href="{{ url_for('admin_dashboard') }}" class="active">Tổng quan</a></li>
+            <li><a href="{{ url_for('admin_products') }}">Quản lý sản phẩm</a></li>
+            <li><a href="{{ url_for('admin_upload') }}">Upload ảnh mới</a></li>
+            <li><a href="{{ url_for('admin_logout') }}">Đăng xuất</a></li>
+        </ul>
+    </aside>
+    <main class="admin-content">
+        <h2>BẢNG ĐIỀU KHIỂN TỔNG QUAN</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h4>Tổng số hình ảnh</h4>
+                <div class="number">{{ total_products }}</div>
+            </div>
+            <div class="stat-box">
+                <h4>Tổng số liên hệ khách hàng</h4>
+                <div class="number">{{ total_contacts }}</div>
+            </div>
+        </div>
+
+        <div class="admin-card">
+            <h3>Yêu cầu tư vấn gần đây</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Số điện thoại</th>
+                        <th>Nội dung</th>
+                        <th>Thời gian</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in contacts %}
+                    <tr>
+                        <td>{{ c.fullname }}</td>
+                        <td>{{ c.phone }}</td>
+                        <td>{{ c.message }}</td>
+                        <td>{{ c.created_at.strftime('%d-%m-%Y %H:%M') }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" style="text-align: center;">Chưa có yêu cầu liên hệ nào.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category.name if category else 'Sản phẩm' }} - Cửa Nhôm Nguyễn Nghiệm{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header" style="margin-top: 80px;">
+    <div class="container">
+        <h1>{{ category.name if category else 'DANH MỤC SẢN PHẨM' }}</h1>
+        <p>Bộ sưu tập hình ảnh thi công thực tế</p>
+    </div>
+</div>
+
+<section class="gallery-section section-padding">
+    <div class="container">
+        {% if products and category %}
+            <div class="product-grid">
+                {% for item in products %}
+                    <div class="gallery-item" data-image="{{ url_for('static', filename='uploads/' ~ category.slug ~ '/' ~ item.image) }}" data-title="{{ item.title }}">
+                        <div class="image-wrapper">
+                            <img src="{{ url_for('static', filename='uploads/' ~ category.slug ~ '/' ~ item.image) }}" alt="{{ item.title }}" loading="lazy">
+                        </div>
+                        <div class="gallery-overlay">
+                            <span>{{ item.title }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-gallery" style="text-align: center; padding: 60px 20px;">
+                <p style="font-size: 18px; color: #64748b; margin-bottom: 20px;">Hiện chưa có hình ảnh thi công cho danh mục này.</p>
+                <a href="{{ url_for('products') }}" class="btn-submit" style="display: inline-block; text-decoration: none; padding: 12px 24px; background: #0d3b66; color: #ffffff; border-radius: 8px; font-weight: bold;">← Xem các danh mục khác</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/product.js') }}"></script>
+{% endblock %}

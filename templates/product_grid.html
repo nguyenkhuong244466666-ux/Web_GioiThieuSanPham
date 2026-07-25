@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category.name if category else 'Sản phẩm' }} - Cửa Nhôm Nguyễn Nghiệm{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>{{ category.name if category else 'DANH MỤC' }}</h1>
+        <p>Bộ sưu tập hình ảnh thi công thực tế</p>
+    </div>
+</div>
+
+<section class="gallery-section section-padding">
+    <div class="container">
+        {% if products %}
+            <div class="product-grid">
+                {% for item in products %}
+                    <div class="gallery-item" data-image="{{ url_for('static', filename='uploads/' ~ category.slug ~ '/' ~ item.image) }}" data-title="{{ item.title }}">
+                        <div class="image-wrapper">
+                            <img src="{{ url_for('static', filename='uploads/' ~ category.slug ~ '/' ~ item.image) }}" alt="{{ item.title }}" loading="lazy">
+                        </div>
+                        <div class="gallery-overlay">
+                            <span>{{ item.title }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-gallery">
+                <p>Hiện chưa có hình ảnh cho danh mục này.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/product.js') }}"></script>
+{% endblock %}
